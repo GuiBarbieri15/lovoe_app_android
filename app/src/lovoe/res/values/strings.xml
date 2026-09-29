@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Lovoe branding overrides for user-visible strings that hardcode "Nextcloud" upstream.
+  Translations in app/src/main/res/values-*/ still win for their locales, so each supported
+  locale that should be rebranded needs its own values-<locale>/strings.xml here.
+-->
+<resources>
+    <string name="compose_activity_label">Lovoe Assistant</string>
+    <string name="prefs_show_ecosystem_apps_summary">App suggestions in navigation heading</string>
+    <string name="file_migration_failed_dir_already_exists">Lovoe folder already exists</string>
+    <string name="single_sign_on_request_token" formatted="true">Allow %1$s to access your Lovoe account %2$s?</string>
+    <string name="ecosystem_apps_more">More apps</string>
+    <string name="auto_upload_battery_optimization_reason">Lovoe\'s background activity is limited by battery optimization.</string>
+</resources>

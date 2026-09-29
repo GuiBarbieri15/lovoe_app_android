@@ -182,6 +182,14 @@ android {
                 versionCode = 1
                 versionName = "1"
             }
+
+            // region Lovoe branding: overrides live in src/lovoe, variant code is shared with generic
+            register("lovoe") {
+                applicationId = "com.empresa.lovoe"
+                dimension = "default"
+            }
+            sourceSets.getByName("lovoe").java.srcDir("src/generic/java")
+            // endregion
         }
     }
 

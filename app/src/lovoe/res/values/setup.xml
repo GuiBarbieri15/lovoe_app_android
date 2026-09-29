@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Lovoe branding overrides.
+
+  Only keys that differ from app/src/main/res/values/setup.xml live here, so upstream changes to
+  setup.xml merge without conflicts. Anything not listed falls back to the upstream value.
+-->
+<resources>
+    <!-- App name and other strings -->
+    <string name="app_name">Lovoe</string>
+    <string name="default_display_name_for_root_folder">Lovoe</string>
+    <string name="name_for_branded_user_agent">Lovoe</string>
+
+    <!-- Must be unique per app on a device, otherwise installing next to the official Nextcloud app fails -->
+    <string name="account_type">com.empresa.lovoe</string>
+    <string name="authority">com.empresa.lovoe.provider</string>
+    <string name="users_and_groups_search_authority">com.empresa.lovoe.providers.UsersAndGroupsSearchProvider</string>
+    <string name="users_and_groups_share_with">com.empresa.lovoe.providers.UsersAndGroupsSearchProvider.action.SHARE_WITH</string>
+    <string name="document_provider_authority">com.empresa.lovoe.documents</string>
+    <string name="file_provider_authority">com.empresa.lovoe.files</string>
+    <string name="image_cache_provider_authority">com.empresa.lovoe.imageCache.provider</string>
+    <string name="db_file">lovoe.db</string>
+    <string name="db_name">lovoe</string>
+    <string name="data_folder">lovoe</string>
+
+    <!-- Locked to a single server: web login flow only, no server URL field, no provider sign-up.
+         AuthenticatorActivity.checkAllowedServers() also rejects QR / deep-link logins to other hosts. -->
+    <string name="webview_login_url" translatable="false">https://cloud.meudominio.com/index.php/login/flow</string>
+    <bool name="show_server_url_input">false</bool>
+    <bool name="show_provider_or_own_installation">false</bool>
+
+    <!-- Hides Nextcloud ecosystem suggestions (Talk, Notes, ...) -->
+    <bool name="is_branded_client">true</bool>
+    <bool name="show_whats_new">false</bool>
+    <bool name="recommend_enabled">false</bool>
+    <bool name="sourcecode_enabled">false</bool>
+
+    <!-- Lovoe palette: Cosmic Aurora #0F1A2F, Plasma Pink #FF073A, Galactic Teal #2CE6D6, Moon Dust #F9EFE8 -->
+    <color name="primary">#0F1A2F</color>
+    <color name="primary_dark">#0A1222</color>
+    <color name="color_accent">#FF073A</color>
+    <color name="login_text_color">#F9EFE8</color>
+    <color name="login_text_hint_color">#2CE6D6</color>
+</resources>

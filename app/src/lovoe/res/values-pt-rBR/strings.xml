@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lovoe branding overrides (pt-BR). See values/strings.xml. -->
+<resources>
+    <string name="compose_activity_label">Lovoe Assistente</string>
+    <string name="prefs_show_ecosystem_apps_summary">Sugestões de aplicativos no título de navegação</string>
+    <string name="file_migration_failed_dir_already_exists">Pasta Lovoe já existe</string>
+    <string name="ecosystem_apps_more">Mais aplicativos</string>
+    <string name="auto_upload_battery_optimization_reason">A atividade em segundo plano do Lovoe é limitada pela otimização da bateria.</string>
+</resources>

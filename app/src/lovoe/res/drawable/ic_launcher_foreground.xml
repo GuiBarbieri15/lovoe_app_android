@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PLACEHOLDER: replace with the final Lovoe artwork from ./branding/ (keep the file name). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FF073A"
+        android:pathData="M40,34h10v30h20v10h-30z" />
+    <path
+        android:fillColor="#2CE6D6"
+        android:pathData="M66,38m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+</vector>
