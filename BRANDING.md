@@ -10,14 +10,24 @@ aplicado como um **product flavor** isolado (`lovoe`). Todo o resto é código u
 | Flavor, `applicationId` (`com.empresa.lovoe`) | `app/build.gradle.kts`, bloco `// region Lovoe` (única alteração em arquivo upstream) |
 | Nome, cores, servidor travado, authorities, flags | `app/src/lovoe/res/values/setup.xml` |
 | Textos que citam "Nextcloud" | `app/src/lovoe/res/values/strings.xml` e `values-pt-rBR/strings.xml` |
-| Ícone do launcher (adaptive) | `app/src/lovoe/res/drawable/ic_launcher_{background,foreground}.xml` |
-| Logos (login, onboarding, drawer) | `app/src/lovoe/res/drawable/{logo,nextcloud_logo}.xml` |
+| Ícones e logos | `app/src/lovoe/res/drawable/`, `app/src/lovoe/res/mipmap-*/` (ver abaixo) |
 | Código de variante (push, review, DI) | reaproveitado de `app/src/generic/java` (sem Firebase) |
 
 Qualquer recurso colocado em `app/src/lovoe/res/` com o mesmo nome de um recurso de `app/src/main/res/`
 sobrescreve o upstream apenas no build Lovoe.
 
-> Os ícones e logos atuais são **placeholders**. Substitua-os pela arte final mantendo os nomes de arquivo.
+Os arquivos originais da marca ficam em `branding/`. Os drawables foram vetorizados a partir deles:
+
+| Drawable | Origem | Uso |
+|---|---|---|
+| `ic_launcher_foreground.xml` | símbolo de `ICONE_LOVOE.svg`, dentro da zona segura de 66dp | ícone do app, splash screen, ícone temático |
+| `ic_launcher_background.xml` | Cosmic Aurora `#0F1A2F` | fundo do ícone |
+| `notification_icon.xml` | símbolo com traço engrossado para 24dp | barra de status |
+| `logo.xml` / `nextcloud_logo.xml` | `LOGO_LOVOE.svg` | tela de login e topo do menu lateral |
+| `mipmap-*/ic_launcher.png`, `ic_launcher-web.png` | `ICONE_LOJA.png` | fallback legado e ícone da Play Store |
+
+Os SVGs exportados do Canva trazem o símbolo como imagem embutida, que o Android não aceita em
+`VectorDrawable`. Para trocar a arte, prefira exportar SVG com todas as formas em vetor.
 
 ## Servidor travado
 
