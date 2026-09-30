@@ -25,7 +25,7 @@
 
     <!-- Locked to a single server: web login flow only, no server URL field, no provider sign-up.
          AuthenticatorActivity.checkAllowedServers() also rejects QR / deep-link logins to other hosts. -->
-    <string name="webview_login_url" translatable="false">https://cloud.meudominio.com/index.php/login/flow</string>
+    <string name="webview_login_url" translatable="false">https://cloud.lovoe.online/index.php/login/flow</string>
     <bool name="show_server_url_input">false</bool>
     <bool name="show_provider_or_own_installation">false</bool>
 

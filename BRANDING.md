@@ -21,7 +21,7 @@ sobrescreve o upstream apenas no build Lovoe.
 
 ## Servidor travado
 
-`webview_login_url` aponta para `https://cloud.meudominio.com/index.php/login/flow`, com
+`webview_login_url` aponta para `https://cloud.lovoe.online/index.php/login/flow`, com
 `show_server_url_input=false` e `show_provider_or_own_installation=false`. O login abre direto no fluxo web
 do servidor, e logins por QR code/deep link para outros hosts são recusados
 (`AuthenticatorActivity.checkAllowedServers()`).
@@ -30,7 +30,7 @@ do servidor, e logins por QR code/deep link para outros hosts são recusados
 
 A paleta vem de `setup.xml` (`primary` = Cosmic Aurora `#0F1A2F`, `color_accent` = Plasma Pink `#FF073A`).
 Depois do login, o app usa a cor do app **Theming** do servidor. Configure a mesma cor primária no Theming
-de `cloud.meudominio.com` para manter a identidade dentro do app.
+de `cloud.lovoe.online` para manter a identidade dentro do app.
 
 ## Build
 
