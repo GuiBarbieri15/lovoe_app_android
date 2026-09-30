@@ -54,3 +54,13 @@ confira se `app/src/generic/java` ganhou arquivos novos (eles passam a valer par
 ```bash
 grep -n 'Nextcloud' app/src/main/res/values/strings.xml | grep -v 'translatable="false"'
 ```
+
+### Workflows do GitHub Actions
+
+Os workflows do upstream foram removidos. Fica só `.github/workflows/lovoe-apk.yml`, que gera o APK
+(Actions → "Lovoe APK" → Artifacts). Se um merge do upstream trouxer conflito do tipo
+"deleted by us" em `.github/workflows/`, mantenha a remoção:
+
+```bash
+git status --porcelain .github/workflows | awk '/^(DU|UD) /{print $2}' | xargs -r git rm -q
+```
