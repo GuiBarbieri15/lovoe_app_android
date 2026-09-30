@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Nextcloud - Android Client
+  ~
+  ~ SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+  ~ SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/standard_padding">
+
+        <ImageView
+            android:layout_width="@dimen/splash_image_size"
+            android:layout_height="@dimen/splash_image_size"
+            android:layout_marginBottom="@dimen/standard_padding"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxWidth="@dimen/default_login_width"
+            android:minWidth="@dimen/default_login_width"
+            android:orientation="vertical"
+            android:padding="@dimen/standard_half_padding">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_container"
+                style="@style/Widget.App.Login.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/standard_half_margin"
+                android:hint="@string/native_login_username_hint"
+                android:theme="@style/TextInputLayoutLogin">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="username"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress|textNoSuggestions"
+                    android:maxLines="1"
+                    android:textColor="@color/login_text_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_container"
+                style="@style/Widget.App.Login.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_password"
+                android:theme="@style/TextInputLayoutLogin"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/login_text_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColor="@color/login_text_color" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/error_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/alternate_half_padding"
+                android:gravity="center_vertical"
+                android:paddingTop="@dimen/standard_eight_padding"
+                android:paddingBottom="@dimen/standard_eight_padding"
+                android:textColor="@color/login_text_color"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_alert" />
+
+            <ProgressBar
+                android:id="@+id/login_progress_bar"
+                style="@style/Widget.Material3.CircularProgressIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_half_margin"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/login_text_color"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_half_margin"
+                android:text="@string/login"
+                android:textColor="@color/primary"
+                app:backgroundTint="@color/login_text_color"
+                app:cornerRadius="@dimen/button_corner_radius" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/browser_login_button"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/native_login_use_browser"
+                android:textColor="@color/login_text_color" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

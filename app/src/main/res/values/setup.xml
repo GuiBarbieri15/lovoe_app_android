@@ -129,6 +129,9 @@
     <!-- url for webview login, with the protocol prefix and with full url (normally /index.php/login/flow)
     If set, will replace all other login methods available -->
     <string name="webview_login_url" translatable="false"></string>
+    <!-- Only applies when webview_login_url ends with /index.php/login/v2: asks for username and password in the
+    app instead of opening the browser. Two-factor authentication and SSO still need the browser. -->
+    <bool name="native_login_form">false</bool>
 
     <!--    [{\"name\":\"name1\",\"url\":\"url\"},{\"name\":\"name2\",\"url\":\"url1\"}]-->
     <string name="enforce_servers" translatable="false"></string>

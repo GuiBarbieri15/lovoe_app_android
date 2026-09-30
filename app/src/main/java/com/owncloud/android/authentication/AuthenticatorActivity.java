@@ -58,6 +58,7 @@ import com.nextcloud.client.account.User;
 import com.nextcloud.client.account.UserAccountManager;
 import com.nextcloud.client.device.DeviceInfo;
 import com.nextcloud.client.di.Injectable;
+import com.nextcloud.client.login.NativeLoginForm;
 import com.nextcloud.client.network.ClientFactory;
 import com.nextcloud.client.onboarding.FirstRunActivity;
 import com.nextcloud.client.onboarding.OnboardingService;
@@ -243,6 +244,8 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
     private ViewThemeUtils viewThemeUtils;
     private final ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
     protected LoginDialog loginDialog;
+    private NativeLoginForm nativeLoginForm;
+    private String nativeLoginUrl;
 
     @VisibleForTesting
     public AccountSetupBinding getAccountSetupBinding() {
@@ -323,7 +326,13 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
         }
 
         /// load user interface
-        if (webViewLoginMethod) {
+        if (webViewLoginMethod && getResources().getBoolean(R.bool.native_login_form) &&
+            webloginUrl.endsWith(WEB_LOGIN)) {
+            nativeLoginUrl = webloginUrl;
+            String serverUrl = webloginUrl.substring(0, webloginUrl.length() - WEB_LOGIN.length());
+            nativeLoginForm = new NativeLoginForm(this, serverUrl);
+            nativeLoginForm.show();
+        } else if (webViewLoginMethod) {
             accountSetupWebviewBinding = AccountSetupWebviewBinding.inflate(getLayoutInflater());
             setContentView(accountSetupWebviewBinding.getRoot());
             anonymouslyPostLoginRequest(webloginUrl);
@@ -347,6 +356,21 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
         }
 
         ProcessLifecycleOwner.get().getLifecycle().addObserver(lifecycleEventObserver);
+    }
+
+    public void startBrowserLogin() {
+        nativeLoginForm = null;
+        accountSetupWebviewBinding = AccountSetupWebviewBinding.inflate(getLayoutInflater());
+        setContentView(accountSetupWebviewBinding.getRoot());
+        anonymouslyPostLoginRequest(nativeLoginUrl);
+    }
+
+    private boolean showNativeLoginError(int message) {
+        if (nativeLoginForm == null) {
+            return false;
+        }
+        nativeLoginForm.showError(message);
+        return true;
     }
 
     private void showEnforcedServers() {
@@ -1138,7 +1162,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
                     }
                 }
             }
-        } else {
+        } else if (!showNativeLoginError(R.string.native_login_connection_error)) {
             updateServerStatusIconAndText(result);
             showServerStatus();
         }
@@ -1404,6 +1428,7 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
         } else if (result.isServerFail() || result.isException()) {
             /// server errors or exceptions in authorization take to requiring a new check of the server
             mServerInfo = new GetServerInfoOperation.ServerInfo();
+            showNativeLoginError(R.string.native_login_connection_error);
 
             // update status icon and text
             updateServerStatusIconAndText(result);
@@ -1417,7 +1442,9 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity
             }
 
         } else {    // authorization fail due to client side - probably wrong credentials
-            if (accountSetupWebviewBinding != null) {
+            if (nativeLoginForm != null) {
+                nativeLoginForm.showError(R.string.native_login_invalid_credentials);
+            } else if (accountSetupWebviewBinding != null) {
                 anonymouslyPostLoginRequest(mServerInfo.mBaseUrl + WEB_LOGIN);
             } else {
                 SnackbarUtil.show(this, R.string.auth_access_failed, result.getLogMessage(this));

@@ -23,9 +23,10 @@
     <string name="db_name">lovoe</string>
     <string name="data_folder">lovoe</string>
 
-    <!-- Locked to a single server: web login flow only, no server URL field, no provider sign-up.
+    <!-- Locked to a single server: no server URL field, no provider sign-up.
          AuthenticatorActivity.checkAllowedServers() also rejects QR / deep-link logins to other hosts. -->
     <string name="webview_login_url" translatable="false">https://cloud.lovoe.online/index.php/login/v2</string>
+    <bool name="native_login_form">true</bool>
     <bool name="show_server_url_input">false</bool>
     <bool name="show_provider_or_own_installation">false</bool>
 

@@ -32,9 +32,14 @@ Os SVGs exportados do Canva trazem o símbolo como imagem embutida, que o Androi
 ## Servidor travado
 
 `webview_login_url` aponta para `https://cloud.lovoe.online/index.php/login/v2`, com
-`show_server_url_input=false` e `show_provider_or_own_installation=false`. O login abre direto no fluxo web
-do servidor, e logins por QR code/deep link para outros hosts são recusados
-(`AuthenticatorActivity.checkAllowedServers()`).
+`show_server_url_input=false` e `show_provider_or_own_installation=false`. Logins por QR code/deep link
+para outros hosts são recusados (`AuthenticatorActivity.checkAllowedServers()`).
+
+Com `native_login_form=true`, o login é feito dentro do app, sem abrir o navegador: a tela
+(`com.nextcloud.client.login.NativeLoginForm`) pede usuário e senha e troca a senha por um app password em
+`/ocs/v2.php/core/getapppassword`. Contas com verificação em duas etapas ou login por SSO precisam do botão
+"Entrar pelo navegador", que abre o Login Flow v2. Com `native_login_form=false`, o app volta a abrir o
+navegador direto.
 
 ## Cores
 

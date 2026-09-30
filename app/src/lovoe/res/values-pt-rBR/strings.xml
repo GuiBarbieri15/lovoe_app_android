@@ -5,5 +5,10 @@
     <string name="prefs_show_ecosystem_apps_summary">Sugestões de aplicativos no título de navegação</string>
     <string name="file_migration_failed_dir_already_exists">Pasta Lovoe já existe</string>
     <string name="ecosystem_apps_more">Mais aplicativos</string>
+    <string name="native_login_username_hint">Usuário ou e-mail</string>
+    <string name="native_login_use_browser">Entrar pelo navegador</string>
+    <string name="native_login_missing_credentials">Informe seu usuário e sua senha</string>
+    <string name="native_login_invalid_credentials">Usuário ou senha incorretos. Se sua conta usa verificação em duas etapas, entre pelo navegador.</string>
+    <string name="native_login_connection_error">Não foi possível conectar ao servidor. Tente novamente.</string>
     <string name="auto_upload_battery_optimization_reason">A atividade em segundo plano do Lovoe é limitada pela otimização da bateria.</string>
 </resources>
