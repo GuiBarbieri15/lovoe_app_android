@@ -188,7 +188,10 @@ android {
                 applicationId = "com.empresa.lovoe"
                 dimension = "default"
             }
-            sourceSets.getByName("lovoe").java.srcDir("src/generic/java")
+            sourceSets.getByName("lovoe") {
+                java.srcDir("src/generic/java")
+                kotlin.srcDir("src/generic/java")
+            }
             // endregion
         }
     }
