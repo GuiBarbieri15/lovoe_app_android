@@ -31,7 +31,7 @@ Os SVGs exportados do Canva trazem o símbolo como imagem embutida, que o Androi
 
 ## Servidor travado
 
-`webview_login_url` aponta para `https://cloud.lovoe.online/index.php/login/flow`, com
+`webview_login_url` aponta para `https://cloud.lovoe.online/index.php/login/v2`, com
 `show_server_url_input=false` e `show_provider_or_own_installation=false`. O login abre direto no fluxo web
 do servidor, e logins por QR code/deep link para outros hosts são recusados
 (`AuthenticatorActivity.checkAllowedServers()`).
